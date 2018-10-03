@@ -29,27 +29,27 @@ namespace Memories
         /// Initializes the singleton application object.  This is the first line of authored code
         /// executed, and as such is the logical equivalent of main() or WinMain().
         /// </summary>
+        /// 
+
         public App()
         {
             this.InitializeComponent();
             this.Suspending += OnSuspending;
 
-            SqliteEngine.UseWinSqlite3();
+            /*SqliteEngine.UseWinSqlite3();
 
-            using (SqliteConnection db = new SqliteConnection("Filename=sqliteSample.db"))
-            {
-                db.Open();
-                String tableCommand = "CREATE TABLE IF NOT EXISTS MyTable (Primary_Key INTEGER PRIMARY KEY AUTOINCREMENT, Text_Entry NVARCHAR(2048) NULL)";
-                SqliteCommand createTable = new SqliteCommand(tableCommand, db);
-                try
-                {
-                    createTable.ExecuteReader();
-                }
-                catch (SqliteException e)
-                {
-                    //Do nothing
-                }
-            }
+            SqliteConnection db_connection;
+            db_connection = new SqliteConnection("Data Source=MyDatabase.sqlite;");
+            db_connection.Open();
+
+            string sql_command = "create table testMemories (name varchar(20), rate int)";
+            SqliteCommand command = new SqliteCommand(sql_command, db_connection);
+            command.ExecuteNonQuery();
+
+            sql_command = "insert into testMemories (name, rate) values ('FirstTestMemory', 5)";
+            command = new SqliteCommand(sql_command, db_connection);
+            command.ExecuteNonQuery();*/
+
         }
 
         /// <summary>

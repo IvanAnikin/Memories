@@ -41,5 +41,30 @@
             </Grid>
 
         </Grid>
+
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="4*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+
+            </Grid.ColumnDefinitions>
+
+            <Grid Grid.Row="0">
+                <Grid.RowDefinitions>
+                    
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="4*"/>
+                </Grid.ColumnDefinitions>
+
+                <TextBox Text="Name_test" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" Name="TextBox_1" FontSize="36" TextAlignment="Center" RequestedTheme="Light" TextWrapping="NoWrap"/>
+
+            </Grid>
+            
+        </Grid>
+
     </Grid>
 </Page>

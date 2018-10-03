@@ -13,6 +13,9 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
+using Microsoft.Data.Sqlite;
+using Microsoft.Data.Sqlite.Internal;
+
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
 namespace Memories
@@ -20,11 +23,26 @@ namespace Memories
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
+    /// 
+
     public sealed partial class MainPage : Page
     {
         public MainPage()
         {
             this.InitializeComponent();
+
+            SqliteConnection db_connection;
+            db_connection = new SqliteConnection("Data Source=MyDatabase.sqlite;");
+            db_connection.Open();
+
+            string sql_command = "select * from testMemories order by rowid asc limit 1";
+            SqliteCommand command = new SqliteCommand(sql_command, db_connection);
+            SqliteDataReader reader = command.ExecuteReader();
+            reader.Read();
+            
+            TextBox_1.Text = reader["name"].ToString();
+
+            db_connection.Close();
         }
 
         private void Home_Click(object sender, RoutedEventArgs e)
