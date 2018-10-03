@@ -27,9 +27,19 @@ namespace Memories
             this.InitializeComponent();
         }
 
+        private void Home_Click(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(MainPage));
+        }
+
         private void List_classic_Click(object sender, RoutedEventArgs e)
         {
             this.Frame.Navigate(typeof(MemoriesList_classic));
+        }
+
+        private void Map_Click(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(Map));
         }
     }
 }

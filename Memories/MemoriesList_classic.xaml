@@ -6,9 +6,40 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    Background="{ThemeResource SystemControlBackgroundBaseLowBrush}">
+    Background="{ThemeResource SystemControlBackgroundBaseHighBrush}">
 
     <Grid>
+        <Grid.RowDefinitions>
 
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="5*" />
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="2*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+
+            </Grid.ColumnDefinitions>
+
+            <Grid Grid.Row="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+
+                </Grid.ColumnDefinitions>
+
+                <Button x:Name="Home" Content="HOME" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" Click="Home_Click" RequestedTheme="Light" FontSize="36" Height="74"/>
+                <Button x:Name="List_classic" Content="Classic List" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Click="List_classic_Click" RequestedTheme="Light" FontSize="36" Height="74"/>
+                <Button x:Name="map" Content="Map" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" Click="Map_Click" RequestedTheme="Light" FontSize="36" Height="74"/>
+            </Grid>
+
+        </Grid>
     </Grid>
 </Page>

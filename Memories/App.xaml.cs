@@ -15,6 +15,9 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
+using Microsoft.Data.Sqlite;
+using Microsoft.Data.Sqlite.Internal;
+
 namespace Memories
 {
     /// <summary>
@@ -30,6 +33,23 @@ namespace Memories
         {
             this.InitializeComponent();
             this.Suspending += OnSuspending;
+
+            SqliteEngine.UseWinSqlite3();
+
+            using (SqliteConnection db = new SqliteConnection("Filename=sqliteSample.db"))
+            {
+                db.Open();
+                String tableCommand = "CREATE TABLE IF NOT EXISTS MyTable (Primary_Key INTEGER PRIMARY KEY AUTOINCREMENT, Text_Entry NVARCHAR(2048) NULL)";
+                SqliteCommand createTable = new SqliteCommand(tableCommand, db);
+                try
+                {
+                    createTable.ExecuteReader();
+                }
+                catch (SqliteException e)
+                {
+                    //Do nothing
+                }
+            }
         }
 
         /// <summary>
